@@ -19,6 +19,13 @@ public class FlowerBucketTest {
     }
 
     @Test
+    public void initWithPacks() {
+        FlowerPack[] flowerPacks = new FlowerPack[1];
+        flowerPacks[0] = new FlowerPack(new Rose(), MAX_QUANTITY);
+        flowerBucket = new FlowerBucket(flowerPacks);
+    }
+
+    @Test
     public void testPrice() {
         int price = RANDOM_GENERATOR.nextInt(MAX_PRICE);
         int quantity = RANDOM_GENERATOR.nextInt(MAX_QUANTITY);
@@ -28,4 +35,5 @@ public class FlowerBucketTest {
         flowerBucket.add(flowerPack);
         Assertions.assertEquals(price * quantity, flowerBucket.getPrice());
     }
+
 }

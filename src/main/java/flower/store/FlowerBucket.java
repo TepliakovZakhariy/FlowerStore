@@ -1,6 +1,9 @@
 package flower.store;
 
+import lombok.Getter;
+
 public class FlowerBucket {
+    @Getter
     private FlowerPack[] flowerBucket;
 
     public FlowerBucket() {
@@ -26,4 +29,5 @@ public class FlowerBucket {
         newFlowerBucket[flowerBucket.length] = flowerPack;
         flowerBucket = newFlowerBucket;
     }
+
 }

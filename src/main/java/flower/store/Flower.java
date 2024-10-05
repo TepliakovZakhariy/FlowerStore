@@ -2,30 +2,51 @@ package flower.store;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Setter
+@Getter
 public class Flower {
-    @Getter
-    private double sepalLength;
-    private FlowerColor color;
-    @Getter
     private double price;
-    @Getter
-    private FlowerType flowerType;
+    private FlowerSpec flowerSpec;
+
+    public Flower() {
+        this.price = 0;
+        this.flowerSpec = new FlowerSpec();
+    }
 
     public Flower(Flower flower) {
-        this.sepalLength = flower.sepalLength;
-        this.color = flower.color;
         this.price = flower.price;
-        this.flowerType = flower.flowerType;
+        this.flowerSpec = flower.flowerSpec;
     }
 
     public String getColor() {
-        return color.toString();
+        return flowerSpec.getColor().toString();
+    }
+
+    public double getSepalLength() {
+        return flowerSpec.getSepalLength();
+    }
+
+    public String getFlowerType() {
+        return flowerSpec.getFlowerType().toString();
+    }
+
+    public boolean matches(FlowerSpec otherSpec) {
+        return flowerSpec.matches(otherSpec);
+    }
+
+    public void setColor(FlowerColor color) {
+        flowerSpec.setColor(color);
+    }
+
+    public void setSepalLength(double sepalLength) {
+        flowerSpec.setSepalLength(sepalLength);
+    }
+
+    public void setFlowerType(FlowerType flowerType) {
+        flowerSpec.setFlowerType(flowerType);
     }
 
 }
